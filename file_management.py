@@ -6,7 +6,7 @@ class Organize:
         self.main_path_list = os.listdir(main_path)
         self.file_folders = file_folders
     
-    #OS doesn't have a method to create a file in a specific path it has to be created in the working path of this python file so I had to do some logic stuff
+    #OS doesn't have a method to create a file in a specific path it has to be created in the working path of this python file so I had to do some logic in move_folders()
 
     def create_directories(self):
         #need to add input for paths but that can come later
