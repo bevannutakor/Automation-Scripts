@@ -25,7 +25,7 @@ class Organize:
             if self.file_folders[i][0] not in self.main_path_list:
                 os.makedirs(self.file_folders[i][0])
                 shutil.move(self.file_folders[i][0], self.main_path)
-                #Diagnosis is that the file only gets moved to the desired path once the whole program is done running for some reason? this affects the organize_files function which has to create a random binary file cause it thinks the file does not exist
+                #the file only gets moved to the desired path once the whole program is done running this affects the organize_files function which has to create a random binary file cause it thinks the file does not exist
             else:
                 print("This folder already exists")
     
