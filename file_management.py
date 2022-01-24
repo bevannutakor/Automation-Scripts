@@ -21,19 +21,19 @@ class Organize:
                 add_new_folder = False 
             
     def move_folders(self):
+        
         for i in range(len(self.file_folders)):
-            if self.file_folders[i][0] not in self.main_path_list:
-                os.makedirs(self.file_folders[i][0])
-                shutil.move(self.file_folders[i][0], self.main_path)
-                #the file only gets moved to the desired path once the whole program is done running this affects the organize_files function which has to create a random binary file cause it thinks the file does not exist
+            path = os.path.join(self.main_path, self.file_folders[i][0])
+            if not os.path.exists(path):
+                os.mkdir(path)
             else:
-                print("This folder already exists")
+                print("folder already exists")
     
     def organize_files(self):
        for i in range(len(self.main_path_list)):
            for j in range(len(self.file_folders)):
                if self.main_path_list[i].endswith(self.file_folders[j][1]):
-                   shutil.move(self.main_path + "/" + self.main_path_list[i], self.file_folders[j][0]) 
+                   shutil.move(self.main_path + "/" + self.main_path_list[i], self.main_path + "/" + self.file_folders[j][0])
             
 
 
