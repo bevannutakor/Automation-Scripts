@@ -30,16 +30,17 @@ class Organize:
                 print("folder already exists")
     
     def organize_files(self):
-       for i in range(len(self.main_path_list)):
-           for j in range(len(self.file_folders)):
-               if self.main_path_list[i].endswith(self.file_folders[j][1]):
-                   shutil.move(self.main_path + "/" + self.main_path_list[i], self.main_path + "/" + self.file_folders[j][0])
+       for i in range(len(self.file_folders)):
+            path = os.path.join(self.main_path, self.file_folders[i][0])
+            for j in range(len(self.main_path_list)):
+                if self.main_path_list[j].endswith(self.file_folders[i][1]):
+                    shutil.move(self.main_path + "/" + self.main_path_list[j], path)
             
 
 
 
 
-initialize = Organize("/Users/user/Downloads", [])
+initialize = Organize("/Users/user/Desktop", [])
 
 initialize.create_directories()
 initialize.move_folders()
