@@ -21,23 +21,28 @@ class Organize:
     def move_folders(self):
         for i in range(len(self.file_folders)):
             path = os.path.join(self.main_path, self.file_folders[i][0])
+            #make directory
             if not os.path.exists(path):
                 os.mkdir(path)
             else:
                 print("folder already exists")
     
     def organize_files(self):
+       #loop through the number of folders the user created
        for i in range(len(self.file_folders)):
+           #save path string in a variable
             path = os.path.join(self.main_path, self.file_folders[i][0])
             for j in range(len(self.main_path_list)):
+                #check file extention of the paths loose files, with the file the extention the user chose
                 if self.main_path_list[j].endswith(self.file_folders[i][1]):
+                    #move all loose files to the folder
                     shutil.move(self.main_path + "/" + self.main_path_list[j], path)
             
 
 
 
 
-initialize = Organize("/Users/user/Desktop", [])
+initialize = Organize("/Users/user/Downloads", [])
 
 initialize.create_directories()
 initialize.move_folders()
