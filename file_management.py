@@ -42,7 +42,7 @@ class Organize:
 
 
 
-initialize = Organize("/Users/user/Downloads", [])
+initialize = Organize("/Users/user/Desktop", [])
 
 initialize.create_directories()
 initialize.move_folders()
